@@ -43,10 +43,8 @@ const DoctorAvailability = () => {
           headers: { Authorization: `Bearer ${token}` },
         }
       );
-      if(timeSlot){
-        setMessage("Availability set succussfully!")
-      }
-     
+   
+      setMessage("Availability set succussfully!")
       setAvailableSlots([]);
     } catch (error) {
       console.error("Error setting availability", error);
@@ -92,10 +90,14 @@ const DoctorAvailability = () => {
           ))}
         </div>
       </div>
-      <button
-        className="availability-button submit"
-        onClick={submitAvailability}
-      >
+     <button
+  className="availability-button submit"
+  onClick={submitAvailability}
+  disabled={availableSlots.length === 0} 
+>
+  Submit Availability
+</button>
+
         Submit Availability
       </button>
        {message && <p className="availability-message">{message}</p>}
