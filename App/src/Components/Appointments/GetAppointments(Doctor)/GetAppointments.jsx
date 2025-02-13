@@ -53,6 +53,7 @@ const Appointment = ({ appointment, onApprove, onReject }) => {
 
 const AppointmentList = () => {
   const [appointments, setAppointments] = useState([]);
+  const [loading, setLoading] = useState(true);  
   
   const fetchAppointments = async () => {
     try {
@@ -63,8 +64,10 @@ const AppointmentList = () => {
         },
       });
       setAppointments(response.data.appointments);
+      setLoading(false);  
     } catch (error) {
       console.error("Failed to fetch appointments", error);
+      setLoading(false);  
     }
   };
 
@@ -109,20 +112,26 @@ const AppointmentList = () => {
   return (
     <div className="appointments-section">
       <h2>Appointments</h2>
-      <div className="appointments-list">
-        {appointments.length === 0 ? (
-          <p>No appointments scheduled.</p>
-        ) : (
-          appointments.map((appointment) => (
-            <Appointment
-              key={appointment._id}
-              appointment={appointment}
-              onApprove={handleApprove}
-              onReject={handleReject}
-            />
-          ))
-        )}
-      </div>
+
+      {/* Show loading state if appointments are still being fetched */}
+      {loading ? (
+        <div className="loading">Loading appointments...</div>
+      ) : (
+        <div className="appointments-list">
+          {appointments.length === 0 ? (
+            <p>No appointments scheduled.</p>
+          ) : (
+            appointments.map((appointment) => (
+              <Appointment
+                key={appointment._id}
+                appointment={appointment}
+                onApprove={handleApprove}
+                onReject={handleReject}
+              />
+            ))
+          )}
+        </div>
+      )}
     </div>
   );
 };
