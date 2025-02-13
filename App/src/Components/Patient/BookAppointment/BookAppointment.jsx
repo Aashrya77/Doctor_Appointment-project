@@ -10,7 +10,20 @@ const BookAppointment = () => {
   const [message, setMessage] = useState("");
   useEffect(() => {
     fetchAvailableSlots();
+    
   }, []);
+
+    useEffect(() => {
+    if (message) {
+      const timer = setTimeout(() => {
+        setMessage("");
+      }, 5000);
+  
+      return () => clearTimeout(timer); // Cleanup on unmount or new message
+    }
+  }, [message]);
+  
+
 
   // Fetch available slots from the backend
   const fetchAvailableSlots = async () => {
@@ -114,7 +127,7 @@ const BookAppointment = () => {
       )}
 
       {/* Display status message */}
-      {message && <p className="status-message">{message}</p>}
+      {message && <p className="availability-message">{message}</p>}
     </div>
   );
 };
