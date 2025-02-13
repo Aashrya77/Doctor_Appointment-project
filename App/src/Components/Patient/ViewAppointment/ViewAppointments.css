@@ -1,0 +1,76 @@
+.view-appointments {
+    margin: 20px;
+    font-family: Arial, sans-serif;
+  }
+  
+  .view-appointments h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+  
+  .appointments-list {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .appointment-card {
+    background-color: #f9f9f9;
+    padding: 15px;
+    margin-bottom: 15px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .appointment-card p {
+    margin: 5px 0;
+  }
+  
+  .appointment-card .status {
+    font-weight: bold;
+  }
+  
+  .appointment-card .status.pending {
+    color: orange;
+  }
+  
+  .appointment-card .status.approved {
+    color: green;
+  }
+  
+  .appointment-card .status.canceled {
+    color: red;
+  }
+  
+  .cancel-btn {
+    margin-top: 10px;
+    background-color: #e74c3c;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    width: 150px;
+  }
+  
+  .cancel-btn:hover {
+    background-color: #c0392b;
+  }
+  
+  .error {
+    color: red;
+    font-weight: bold;
+  }
+  
+
+  .book-btn{
+    padding: 10px 15px;
+    border: none;
+    background-color: #28a745;
+    color: white;
+    cursor: pointer;
+    border-radius: 3px;
+  }
+
+  .book-btn:hover{
+    background-color: #218838;
+  }

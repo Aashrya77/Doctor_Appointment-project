@@ -1,0 +1,131 @@
+/* General Styles */
+.book-appointment-container {
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 25px;
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  font-family: "Arial", sans-serif;
+}
+
+.book-appointment-container h1 {
+  color: #222;
+  font-size: 28px;
+  margin-bottom: 20px;
+}
+
+/* Doctor Card */
+.doctor-card {
+  background: #f8f9fa;
+  padding: 20px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease-in-out;
+  text-align: left;
+}
+
+.doctor-card:hover {
+  transform: scale(1.03);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+.doctor-card h3 {
+  color: #007bff;
+  font-size: 22px;
+  margin-bottom: 12px;
+}
+
+/* Date Card */
+.date-card {
+  background: #ffffff;
+  padding: 12px;
+  border-radius: 8px;
+  margin-top: 10px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
+}
+
+.date-card p {
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+/* Time Slot Buttons */
+.date-card button {
+  background: #007bff;
+  color: white;
+  border: none;
+  padding: 8px 14px;
+  margin: 6px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: all 0.3s ease;
+  outline: none;
+}
+
+.date-card button:hover {
+  background: #0056b3;
+  transform: scale(1.05);
+}
+
+.date-card button.selected {
+  background: #28a745;
+  font-weight: bold;
+}
+
+/* Selected Slot Section */
+.book-appointment-section {
+  margin-top: 25px;
+  padding: 18px;
+  background: #e3f2fd;
+  border-radius: 10px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.book-appointment-section h3 {
+  color: #222;
+  margin-bottom: 12px;
+}
+
+/* Book Button */
+.book-appointment-section button {
+  background: #28a745;
+  color: white;
+  border: none;
+  padding: 12px 18px;
+  font-size: 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  outline: none;
+}
+
+.book-appointment-section button:hover {
+  background: #218838;
+  transform: scale(1.05);
+}
+
+/* Status Message */
+.status-message {
+  margin-top: 20px;
+  font-size: 16px;
+  font-weight: bold;
+  color: #dc3545;
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+      opacity: 0;
+      transform: translateY(-5px);
+  }
+  to {
+      opacity: 1;
+      transform: translateY(0);
+  }
+}

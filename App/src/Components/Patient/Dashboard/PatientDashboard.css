@@ -1,0 +1,162 @@
+/* Container for the entire dashboard */
+.patient-dashboard-container {
+  max-width: 1300px;
+  margin: 0 auto;
+  padding: 30px;
+  font-family: 'Poppins', sans-serif;
+  background-color: #f9fafc;
+  color: #2c3e50;
+}
+
+/* Header Section */
+.dashboard-header h1 {
+  text-align: center;
+  font-size: 2.8rem;
+  color: #34495e;
+  margin-bottom: 40px;
+  font-weight: 700;
+  text-transform: capitalize;
+  letter-spacing: 1px;
+}
+
+/* Upcoming Appointments Section */
+.appointments-section {
+  background-color: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+  padding: 30px;
+  margin-bottom: 40px;
+}
+
+.appointments-section h2 {
+  font-size: 2.2rem;
+  color: #2c3e50;
+  margin-bottom: 25px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.appointment-card {
+  display: flex;
+  justify-content: space-between;
+  background: linear-gradient(135deg, #f7fafc 0%, #ffffff 100%);
+  padding: 20px;
+  margin-bottom: 15px;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.appointment-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+}
+
+.appointment-info p {
+  font-size: 1.1rem;
+  color: #34495e;
+  margin: 8px 0;
+  line-height: 1.6;
+}
+
+.status {
+  font-weight: bold;
+  text-transform: capitalize;
+}
+
+.status.pending {
+  color: #f39c12; /* Yellow for pending */
+}
+
+.status.approved {
+  color: #28a745; /* Green for approved */
+}
+
+/* No Appointments Message */
+.no-appointments {
+  font-size: 1.2rem;
+  color: #7f8c8d;
+  text-align: center;
+  padding: 18px;
+  background-color: #ecf0f1;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Quick Links Section */
+.quick-links-section {
+  background-color: #ffffff;
+  padding: 30px;
+  border-radius: 16px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+  margin-bottom: 40px;
+}
+
+.quick-links-section h2 {
+  font-size: 2.2rem;
+  color: #2c3e50;
+  margin-bottom: 25px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.quick-links {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.quick-link {
+  font-size: 1.2rem;
+  color: #007bff;
+  text-decoration: none;
+  padding: 15px 25px;
+  background-color: #e6f7ff;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+  max-width: 200px;
+  text-align: center;
+  border: 2px solid transparent;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.quick-link:hover {
+  background-color: #1e79d2;
+  color: #fff;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+  border: 2px solid #1e79d2;
+}
+.quick-link-icon {
+  font-size: 18px;
+}
+.quick-link:focus {
+  outline: none;
+  border: 2px solid #1e79d2;
+}
+
+
+
+
+.logout-link {
+  border: none;
+  font-size: 16px;
+  cursor: pointer;
+  text-decoration: none;
+  border: 2px solid transparent;
+
+}
+
+.logout-link:hover {
+  background-color: #c82333;
+  color: #fff;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+  border: 2px solid #d61528;
+}
+
