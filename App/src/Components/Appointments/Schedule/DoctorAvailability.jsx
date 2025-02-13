@@ -43,7 +43,10 @@ const DoctorAvailability = () => {
           headers: { Authorization: `Bearer ${token}` },
         }
       );
-     setMessage("Availability set succussfully!")
+      if(timeSlot){
+        setMessage("Availability set succussfully!")
+      }
+     
       setAvailableSlots([]);
     } catch (error) {
       console.error("Error setting availability", error);
