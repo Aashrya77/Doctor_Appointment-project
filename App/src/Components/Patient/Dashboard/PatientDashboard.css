@@ -167,6 +167,7 @@
     font-size: 1.6rem
   }
   .quick-link{
-    width: 160px
+    width: 160px;
+    font-size: .9rem;
   }
 }
