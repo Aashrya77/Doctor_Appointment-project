@@ -79,7 +79,7 @@ const Dashboard = () => {
       <main className="main-content">
         <header className="dashboard-header">
           <h1>Welcome, Dr. {doctor.name ? doctor.name.split(" ")[0] : "Loading..."}</h1>
-          <p>Your schedule</p>
+          <p>Appointments overview</p>
         </header>
         <section className="stats-section">
           <div className="stat-box"><FontAwesomeIcon icon={faClock} className="icon" /> <h3>Upcoming Appointments</h3><p>{appointments.length}</p></div>
