@@ -32,7 +32,7 @@ const Dashboard = () => {
   const fetchAppointments = async () => {
     try {
       const token = localStorage.getItem("token");
-      const { data } = await axios.get("https://doctor-appointment-backend-tim3.onrender.com/api/v1/auth/profile", {
+      const { data } = await axios.get("https://doctor-appointment-backend-tim3.onrender.com/api/v1/appointments", {
         headers: { Authorization: `Bearer ${token}` },
       });
       setPending(data.appointments.filter((appointment) => appointment.status === "pending"));
@@ -78,7 +78,7 @@ const Dashboard = () => {
       </button>
       <main className="main-content">
         <header className="dashboard-header">
-          <h1>Welcome, Dr. {doctor.name?.split(" ")[0]}</h1>
+          <h1>Welcome, Dr. {doctor.name ? doctor.name.split(" ")[0] : "Loading..."}</h1>
           <p>Your schedule for today</p>
         </header>
         <section className="stats-section">
@@ -88,18 +88,20 @@ const Dashboard = () => {
         <section className="appointments-section">
           <h2>Upcoming Appointments</h2>
           <ul className="appointments-list">
-             {appointments.length === 0 ? (
+            {appointments.length === 0 ? (
               <p>No upcoming appointments</p>
             ) : (
-            {appointments.map((appointment) => (
-              <li key={appointment.id} className="appointment-item">
-                <p><strong>Patient:</strong> {appointment.patientId.name}</p>
-                <p><strong>Time:</strong> {formatDate(appointment.slot)}</p>
-                <p style={{textTransform: 'capitalize'}}><strong>Status:</strong><span style={{color: '#218838'}}> {appointment.status}</span></p>
-              </li>
-            ))}
-            )
-            }
+              appointments.map((appointment) => (
+                <li key={appointment.id} className="appointment-item">
+                  <p><strong>Patient:</strong> {appointment.patientId.name}</p>
+                  <p><strong>Time:</strong> {formatDate(appointment.slot)}</p>
+                  <p style={{ textTransform: 'capitalize' }}>
+                    <strong>Status:</strong>
+                    <span style={{ color: '#218838' }}> {appointment.status}</span>
+                  </p>
+                </li>
+              ))
+            )}
           </ul>
         </section>
       </main>
