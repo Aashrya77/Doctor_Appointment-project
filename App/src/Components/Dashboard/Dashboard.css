@@ -231,7 +231,7 @@
     flex-direction: column;
   }
   .stat-box {
-    width: 100%;
+    width: 85%;
   }
   .dashboard-header h1 {
     font-size: 24px;
@@ -259,7 +259,7 @@
     flex-direction: column;
   }
   .stat-box {
-    padding: 15px;
+    padding: 12px;
   }
   .appointment-item {
     padding: 10px;
