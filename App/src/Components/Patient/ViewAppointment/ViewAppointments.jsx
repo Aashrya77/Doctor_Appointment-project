@@ -20,15 +20,16 @@ const ViewAppointments = () => {
       y: -20,
       opacity: 0,
       
+      
+    }, {
+      opacity: 1,stagger: .4,
+      y: 0,
       ease: 'power1.inOut',
       scrollTrigger: {
-        trigger: '.appointment-list',
+        trigger: '.appointments-list',
         start: 'top top',
         toggleActions: 'play none none none'
       }
-    }, {
-      opacity: 1,stagger: .4,
-      y: 0
     })
     gsap.from('.view-appointments h2', {
       y: -20,
