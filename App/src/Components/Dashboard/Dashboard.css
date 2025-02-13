@@ -63,7 +63,7 @@
   cursor: pointer;
   color: #807e7e;
   border-radius: 3px;
-
+z-index: 1000;
 }
 
 .main-content {
