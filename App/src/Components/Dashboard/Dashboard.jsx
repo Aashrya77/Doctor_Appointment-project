@@ -121,7 +121,6 @@ const Dashboard = () => {
     <div className="dashboard-container">
       <aside className={`sidebar ${menuOpen ? "open" : ""}`}>
 
-        <h2>Doctor's Dashboard</h2>
 
         <h2 className="header-ani">Doctor's Dashboard</h2>
 
@@ -138,10 +137,7 @@ const Dashboard = () => {
       </button>
       <main className="main-content">
 
-             <header className="dashboard-header">
-             <h1>Welcome back, Dr. {doctor.name ? doctor.name.split(" ")[0] : "Loading..."}</h1>
-             <p className="subheading">Here's an overview of your upcoming appointments</p>
-             </header>
+
 
       <header className="dashboard-header header-ani">
   <h1>Welcome back, Dr. {doctor.name ? doctor.name.split(" ")[0] : "Loading..."}</h1>
