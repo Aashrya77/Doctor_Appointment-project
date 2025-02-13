@@ -107,6 +107,7 @@
   justify-content: space-between;
   gap: 20px;
   flex-wrap: wrap;
+  align-items: center;
 }
 
 .quick-link {
@@ -125,6 +126,7 @@
   display: flex;
   align-items: center;
   gap: 6px;
+  justify-content: center;
 }
 
 .quick-link:hover {
