@@ -77,10 +77,10 @@ const Dashboard = () => {
         <FontAwesomeIcon icon={faBars} />
       </button>
       <main className="main-content">
-        <header className="dashboard-header">
-          <h1>Welcome, Dr. {doctor.name ? doctor.name.split(" ")[0] : "Loading..."}</h1>
-          <p>Appointments overview</p>
-        </header>
+             <header className="dashboard-header">
+             <h1>Welcome back, Dr. {doctor.name ? doctor.name.split(" ")[0] : "Loading..."}</h1>
+             <p className="subheading">Here's an overview of your upcoming appointments</p>
+             </header>
         <section className="stats-section">
           <div className="stat-box"><FontAwesomeIcon icon={faClock} className="icon" /> <h3>Upcoming Appointments</h3><p>{appointments.length}</p></div>
           <div className="stat-box"><FontAwesomeIcon icon={faCalendarCheck} className="icon" /> <h3>Pending Appointments</h3><p>{pending.length}</p></div>
