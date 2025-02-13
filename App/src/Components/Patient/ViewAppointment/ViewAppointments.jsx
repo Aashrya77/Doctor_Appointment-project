@@ -27,7 +27,7 @@ const ViewAppointments = () => {
       ease: 'power1.inOut',
       scrollTrigger: {
         trigger: '.appointments-list',
-        start: 'top top',
+        start: 'top 80%',
         toggleActions: 'play none none none'
       }
     })
