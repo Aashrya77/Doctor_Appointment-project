@@ -66,7 +66,7 @@ const PatientDashboard = () => {
   return (
     <div className="patient-dashboard-container">
       <div className="dashboard-header">
-        <h1>Welcome back, {patient?.split(" ")[0]}!</h1>
+        <h1>Welcome back, {patient ? patient.split(" ")[0] : "Loading..."}!</h1>
       </div>
 
       {/* Upcoming Appointments Section */}
