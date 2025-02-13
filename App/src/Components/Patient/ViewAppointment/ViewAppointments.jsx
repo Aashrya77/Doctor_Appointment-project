@@ -16,21 +16,20 @@ const ViewAppointments = () => {
   
   useGSAP(() => {
 
-    gsap.fromTo('.appointment-card', {
-      y: -20,
-      opacity: 0,
-      
-      
-    }, {
-      opacity: 1,stagger: .4,
-      y: 0,
-      ease: 'power1.inOut',
-      scrollTrigger: {
-        trigger: '.appointments-list',
-        start: 'top 80%',
-        toggleActions: 'play none none none'
+gsap.fromTo('.appointment-card', 
+      { y: -20, opacity: 0 },
+      {
+        opacity: 1,
+        y: 0,
+        stagger: 0.4,
+        ease: 'power1.inOut',
+        scrollTrigger: {
+          trigger: '.appointment-card',
+          start: 'top 80%',
+          toggleActions: 'play none none none',
+        }
       }
-    })
+    );
     gsap.from('.view-appointments h2', {
       y: -20,
       opacity: 0,
