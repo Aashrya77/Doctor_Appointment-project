@@ -20,7 +20,7 @@ const Dashboard = () => {
   const fetchDoctorProfile = async () => {
     try {
       const token = localStorage.getItem("token");
-      const { data } = await axios.get("http://localhost:5500/api/v1/auth/profile", {
+      const { data } = await axios.get("https://doctor-appointment-backend-tim3.onrender.com/api/v1/auth/profile", {
         headers: { Authorization: `Bearer ${token}` },
       });
       setDoctor(data);
@@ -88,6 +88,9 @@ const Dashboard = () => {
         <section className="appointments-section">
           <h2>Upcoming Appointments</h2>
           <ul className="appointments-list">
+             {appointments.length === 0 ? (
+              <p>No upcoming appointments</p>
+            ) : (
             {appointments.map((appointment) => (
               <li key={appointment.id} className="appointment-item">
                 <p><strong>Patient:</strong> {appointment.patientId.name}</p>
@@ -95,6 +98,8 @@ const Dashboard = () => {
                 <p style={{textTransform: 'capitalize'}}><strong>Status:</strong><span style={{color: '#218838'}}> {appointment.status}</span></p>
               </li>
             ))}
+            )
+            }
           </ul>
         </section>
       </main>
