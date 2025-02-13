@@ -36,13 +36,12 @@ const DoctorAvailability = () => {
       }, []);
   
       await axios.post(
-        "http://localhost:5500/api/v1/availability",
+        "https://doctor-appointment-backend-tim3.onrender.com/api/v1/availability",
         { availableSlots: formattedSlots },
         {
           headers: { Authorization: `Bearer ${token}` },
         }
       );
-      console.log(formattedSlots);
       alert("Availability set successfully");
       setAvailableSlots([]);
     } catch (error) {
