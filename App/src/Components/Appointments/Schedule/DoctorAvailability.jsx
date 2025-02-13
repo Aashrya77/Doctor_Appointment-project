@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import axios from "axios";
 import "./DoctorAvailability.css";
 
@@ -6,6 +6,7 @@ const DoctorAvailability = () => {
   const [date, setDate] = useState("");
   const [timeSlot, setTimeSlot] = useState("");
   const [availableSlots, setAvailableSlots] = useState([]);
+  const [message, setMessage] = useState('')
 
   const addTimeSlot = () => {
     if (date && timeSlot) {
@@ -42,13 +43,23 @@ const DoctorAvailability = () => {
           headers: { Authorization: `Bearer ${token}` },
         }
       );
-      alert("Availability set successfully");
+     setMessage("Availability set succussfully!")
       setAvailableSlots([]);
     } catch (error) {
       console.error("Error setting availability", error);
       alert(error.response?.data?.msg || "An error occurred");
     }
   };
+
+    useEffect(() => {
+    if (message) {
+      const timer = setTimeout(() => {
+        setMessage("");
+      }, 5000);
+  
+      return () => clearTimeout(timer); // Cleanup on unmount or new message
+    }
+  }, [message]);
 
   return (
     <div className="availability-container">
@@ -84,6 +95,7 @@ const DoctorAvailability = () => {
       >
         Submit Availability
       </button>
+       {message && <p className="availability-message">{message}</p>}
     </div>
   );
 };
