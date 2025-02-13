@@ -25,8 +25,8 @@ const AuthForm = () => {
   
     try {
       const endpoint = isRegister
-        ? "http://localhost:5500/api/v1/auth/register"
-        : "http://localhost:5500/api/v1/auth/login";
+        ? "https://doctor-appointment-backend-tim3.onrender.com/api/v1/auth/register"
+        : "https://doctor-appointment-backend-tim3.onrender.com/api/v1/auth/login";
   
       const { data } = await axios.post(endpoint, formData);
   
