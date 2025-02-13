@@ -14,7 +14,7 @@ const Dashboard = () => {
   const fetchDoctorProfile = async () => {
     try {
       const token = localStorage.getItem("token");
-      const { data } = await axios.get("http://localhost:5500/api/v1/auth/profile", {
+      const { data } = await axios.get("https://doctor-appointment-backend-tim3.onrender.com/api/v1/auth/profile", {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -28,7 +28,7 @@ const Dashboard = () => {
   const fetchAppointments = async () => {
     try {
       const token = localStorage.getItem("token");
-      const { data } = await axios.get("http://localhost:5500/api/v1/appointments", {
+      const { data } = await axios.get("https://doctor-appointment-backend-tim3.onrender.com/api/v1/appointments", {
         headers: {
           Authorization: `Bearer ${token}`,
         },
