@@ -12,7 +12,7 @@ const ViewAppointments = () => {
   const fetchAppointments = async () => {
     try {
       const response = await axios.get(
-        "http://localhost:5500/api/v1/appointments",
+        "https://doctor-appointment-backend-tim3.onrender.com/api/v1/appointments",
         {
           headers: {
             Authorization: `Bearer ${localStorage.getItem("token")}`,
@@ -40,7 +40,7 @@ const ViewAppointments = () => {
       }
 
       const response = await axios.put(
-        `http://localhost:5500/api/v1/cancel-appointment/${appointmentId}`,
+        `https://doctor-appointment-backend-tim3.onrender.com/api/v1/cancel-appointment/${appointmentId}`,
         {},
         {
           headers: {
