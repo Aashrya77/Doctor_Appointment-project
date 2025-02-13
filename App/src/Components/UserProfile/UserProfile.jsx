@@ -11,7 +11,7 @@ const UserProfile = () => {
     try {
       const token = localStorage.getItem("token");
       const { data } = await axios.get(
-        "http://localhost:5500/api/v1/auth/profile",
+        "https://doctor-appointment-backend-tim3.onrender.com/api/v1/auth/profile",
         {
           headers: { Authorization: `Bearer ${token}` },
         }
