@@ -160,3 +160,8 @@
   border: 2px solid #d61528;
 }
 
+@media screen and (max-width: 768px){
+  .appointments-section h2{
+    font-size: 1.6rem
+  }
+}
