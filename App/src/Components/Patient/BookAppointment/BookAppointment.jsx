@@ -17,7 +17,7 @@ const BookAppointment = () => {
     try {
       const token = localStorage.getItem("token");
       const response = await axios.get(
-        "http://localhost:5500/api/v1/available-slots",
+        "https://doctor-appointment-backend-tim3.onrender.com/api/v1/available-slots",
         {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -41,7 +41,7 @@ const BookAppointment = () => {
       const token = localStorage.getItem("token");
 
       const response = await axios.post(
-        "http://localhost:5500/api/v1/appointments",
+        "https://doctor-appointment-backend-tim3.onrender.com/api/v1/appointments",
         {
           doctorId: selectedDoctor,
           slot: selectedSlot, 
