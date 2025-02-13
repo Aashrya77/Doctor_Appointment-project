@@ -13,6 +13,7 @@ const AuthForm = () => {
     gender: "Male",
   });
   const [error, setError] = useState("");
+  const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
   const handleChange = (e) => {
@@ -22,7 +23,7 @@ const AuthForm = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setError("");
-  
+    setLoading(true);
     try {
       const endpoint = isRegister
         ? "https://doctor-appointment-backend-tim3.onrender.com/api/v1/auth/register"
@@ -42,6 +43,8 @@ const AuthForm = () => {
       }
     } catch (err) {
       setError("Invalid credentials or server error");
+    } finally{
+      setLoading(false);
     }
   };
 
@@ -102,8 +105,8 @@ const AuthForm = () => {
               </select>
             </>
           )}
-          <button type="submit" className="auth-button">
-            {isRegister ? "Register" : "Login"}
+          <button type="submit" className="auth-button" disabled={loading}>
+            {loading ? "Processing..." : isRegister ? "Register" : "Login"}
           </button>
         </form>
         <p className="auth-toggle">
