@@ -13,7 +13,7 @@ const PatientDashboard = () => {
   const fetchApprovedAppointments = async () => {
     try {
       const token = localStorage.getItem('token')
-      const response = await axios.get('http://localhost:5500/api/v1/appointments', {
+      const response = await axios.get('https://doctor-appointment-backend-tim3.onrender.com/api/v1/appointments', {
         headers: {
           Authorization: `Bearer ${token}`
         }
@@ -27,7 +27,7 @@ const PatientDashboard = () => {
 
   const fetchProfile = async () => {
     try {
-      const response = await axios.get('http://localhost:5500/api/v1/auth/profile', {
+      const response = await axios.get('https://doctor-appointment-backend-tim3.onrender.com/api/v1/auth/profile', {
         headers: {
           Authorization: `Bearer ${localStorage.getItem('token')}`
         }
