@@ -4,11 +4,56 @@ import './PatientDashboard.css';
 import axios from "axios";
 import { AiOutlineUser, AiOutlineSchedule } from "react-icons/ai";
 import { FaCalendarAlt, FaSignOutAlt } from "react-icons/fa";
-
+import gsap from 'gsap'
+import { useGSAP } from "@gsap/react";
+import { ScrollTrigger } from "gsap/all";
+gsap.registerPlugin(ScrollTrigger)
 
 const PatientDashboard = () => {
   const [appointments, setAppointments] = useState([])
   const [patient, setpatient] = useState('')
+
+  useGSAP(() => {
+    gsap.from('.ani', {
+      y: -20,
+      opacity: 0,
+      stagger: .3,
+      ease: 'power1.inOut',
+      scrollTrigger: {
+        trigger: '.dashboard-header',
+        start: 'top 80%',
+        toggleActions: 'play none none none'
+      }
+    })
+    gsap.fromTo('.quick-links-section a, .quick-links-section button', {
+      y: -20,
+      opacity: 0,
+      
+      ease: 'power1.inOut',
+      scrollTrigger: {
+        trigger: '.quick-link',
+        start: 'top 80%',
+        toggleActions: 'play none none none'
+      }
+    }, {
+      opacity: 1,stagger: .3,
+      y: 0
+    })
+    gsap.fromTo('.appointment-card', {
+      y: -20,
+      opacity: 0,
+      
+      ease: 'power1.inOut',
+      scrollTrigger: {
+        trigger: 'appointment-card',
+        start: 'top 80%',
+        toggleActions: 'play none none none'
+      }
+    }, {
+      opacity: 1,stagger: .3,
+      y: 0
+    })
+  })
 
   const fetchApprovedAppointments = async () => {
     try {
@@ -66,12 +111,13 @@ const PatientDashboard = () => {
   return (
     <div className="patient-dashboard-container">
       <div className="dashboard-header">
+      <div className="dashboard-header ani">
         <h1>Welcome back, {patient ? patient.split(" ")[0] : "Loading..."}!</h1>
       </div>
 
       {/* Upcoming Appointments Section */}
       <div className="appointments-section">
-        <h2>Upcoming Appointments</h2>
+        <h2 className="ani">Upcoming Appointments</h2>
         {appointments.length === 0 ? (
           <p className="no-appointments">You have no upcoming appointments.</p>
         ) : (
@@ -109,7 +155,9 @@ const PatientDashboard = () => {
 
 
     </div>
+    </div>
   );
-};
+
+}
 
 export default PatientDashboard;

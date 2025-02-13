@@ -2,12 +2,46 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import "./ViewAppointments.css";
 import { useNavigate } from "react-router-dom";
+import gsap from 'gsap'
+import { useGSAP } from "@gsap/react";
+import { ScrollTrigger } from "gsap/all";
+gsap.registerPlugin(ScrollTrigger)
 
 const ViewAppointments = () => {
   const [appointments, setAppointments] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
   const navigate = useNavigate();
+
+  
+  useGSAP(() => {
+
+    gsap.fromTo('.appointment-card', {
+      y: -20,
+      opacity: 0,
+      
+      ease: 'power1.inOut',
+      scrollTrigger: {
+        trigger: '.appointment-list',
+        start: 'top top',
+        toggleActions: 'play none none none'
+      }
+    }, {
+      opacity: 1,stagger: .4,
+      y: 0
+    })
+    gsap.from('.view-appointments h2', {
+      y: -20,
+      opacity: 0,
+      stagger: .2,
+      ease: 'power1.inOut',
+      scrollTrigger: {
+        trigger: '.view-appointments',
+        start: 'top 80%',
+        toggleActions: 'play none none none'
+      }
+    })
+  })
 
   const fetchAppointments = async () => {
     try {

@@ -1,8 +1,32 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import "./GetAppointment.css";
+import gsap from 'gsap'
+import { useGSAP } from "@gsap/react";
+import { ScrollTrigger } from "gsap/all";
+gsap.registerPlugin(ScrollTrigger)
 
 const Appointment = ({ appointment, onApprove, onReject }) => {
+
+  useGSAP(() => {
+    gsap.fromTo('.appointment-card', 
+      { y: -20, opacity: 0 },
+      {
+        opacity: 1,
+        y: 0,
+        stagger: 0.4,
+        ease: 'power1.inOut',
+        scrollTrigger: {
+          trigger: '.appointment-card',
+          start: 'top 80%',
+          toggleActions: 'play none none none',
+        }
+      }
+    );
+  });
+  
+
+
   const formatDate = (dateString) => {
     const date = new Date(dateString);
     return date.toLocaleString("en-GB", {
@@ -54,6 +78,22 @@ const Appointment = ({ appointment, onApprove, onReject }) => {
 const AppointmentList = () => {
   const [appointments, setAppointments] = useState([]);
   const [loading, setLoading] = useState(true);  
+
+
+  useGSAP(() => {
+    gsap.from('.appointments-section h2', {
+      y: -20,
+      opacity: 0,
+      stagger: .2,
+      ease: 'power1.inOut',
+      scrollTrigger: {
+        trigger: '.appointments-section',
+        start: 'top 80%',
+        toggleActions: 'play none none none'
+      }
+    })
+  })
+
   
   const fetchAppointments = async () => {
     try {

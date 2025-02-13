@@ -5,6 +5,13 @@ import "./Dashboard.css";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
+
+
+import gsap from 'gsap'
+import { useGSAP } from "@gsap/react";
+import { ScrollTrigger } from "gsap/all";
+gsap.registerPlugin(ScrollTrigger)
+
 const Dashboard = () => {
   const [doctor, setDoctor] = useState({});
   const [appointments, setAppointments] = useState([]);
@@ -16,6 +23,55 @@ const Dashboard = () => {
     fetchDoctorProfile();
     fetchAppointments();
   }, []);
+
+  useGSAP(() => {
+    gsap.from('.header-ani', {
+      y: -20,
+      opacity: 0,
+      stagger: .2,
+      ease: 'power1.inOut',
+      scrollTrigger: {
+        trigger: '.header-ani',
+        start: 'top 80%',
+        toggleActions: 'play none none none'
+      }
+    })
+    gsap.from('.sidebar ul li', {
+      delay: .3,
+      stagger: .2,
+      opacity: 0,
+      ease: 'power1.inOut',
+      scrollTrigger: {
+        trigger: '.sidebar',
+        start: 'top 80%',
+        toggleActions: 'play none none none'
+      }
+    })
+    gsap.from('.stat-box', {
+      delay: .3,
+      stagger: .2,
+      opacity: 0,
+      ease: 'power1.inOut',
+      scrollTrigger: {
+        trigger: '.stats-section',
+        start: 'top 80%',
+        toggleActions: 'play none none none'
+      }
+    })
+    gsap.from('.appointments-list li', {
+      delay: .3,
+      stagger: .4,
+      opacity: 0,
+      ease: 'power1.inOut',
+      scrollTrigger: {
+        trigger: '.appointments-list li p',
+        start: 'top 80%',
+        toggleActions: 'play none none none'
+      }
+    })
+  })
+ 
+
 
   const fetchDoctorProfile = async () => {
     try {
@@ -64,7 +120,11 @@ const Dashboard = () => {
   return (
     <div className="dashboard-container">
       <aside className={`sidebar ${menuOpen ? "open" : ""}`}>
+
         <h2>Doctor's Dashboard</h2>
+
+        <h2 className="header-ani">Doctor's Dashboard</h2>
+
         <ul>
           <li onClick={() => navigate("/")}> <FontAwesomeIcon icon={faHome} className="icon" /> Home</li>
           <li onClick={() => navigate("/appointments")}><FontAwesomeIcon icon={faCalendarCheck} className="icon" /> Appointments</li>
@@ -77,10 +137,17 @@ const Dashboard = () => {
         <FontAwesomeIcon icon={faBars} />
       </button>
       <main className="main-content">
+
              <header className="dashboard-header">
              <h1>Welcome back, Dr. {doctor.name ? doctor.name.split(" ")[0] : "Loading..."}</h1>
              <p className="subheading">Here's an overview of your upcoming appointments</p>
              </header>
+
+      <header className="dashboard-header header-ani">
+  <h1>Welcome back, Dr. {doctor.name ? doctor.name.split(" ")[0] : "Loading..."}</h1>
+  <p className="subheading header-ani">Here's an overview of your upcoming appointments</p>
+</header>
+
         <section className="stats-section">
           <div className="stat-box"><FontAwesomeIcon icon={faClock} className="icon" /> <h3>Upcoming Appointments</h3><p>{appointments.length}</p></div>
           <div className="stat-box"><FontAwesomeIcon icon={faCalendarCheck} className="icon" /> <h3>Pending Appointments</h3><p>{pending.length}</p></div>
