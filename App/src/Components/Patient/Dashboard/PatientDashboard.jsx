@@ -39,13 +39,13 @@ const PatientDashboard = () => {
       opacity: 1,stagger: .3,
       y: 0
     })
-    gsap.fromTo('.appointment-card', {
+    gsap.fromTo('.appointment-info', {
       y: -20,
       opacity: 0,
       
       ease: 'power1.inOut',
       scrollTrigger: {
-        trigger: 'appointment-card',
+        trigger: 'appointment-info',
         start: 'top 80%',
         toggleActions: 'play none none none'
       }
