@@ -44,7 +44,6 @@
 }
 
 .sidebar .logout {
-
   color: #e74c3c;
 }
 
@@ -62,9 +61,10 @@
 }
 
 .main-content {
-  margin-left: 300px;
+  margin-left: 250px; /* Adjusted for a cleaner layout on large screens */
   padding: 20px;
   flex: 1;
+  transition: margin-left 0.3s ease-in-out; /* Smooth transition when menu toggles */
 }
 
 .dashboard-header {
@@ -79,9 +79,10 @@
   display: flex;
   gap: 20px;
   margin-bottom: 20px;
+  flex-wrap: wrap; /* Allows the items to wrap on smaller screens */
 }
 
-.stat-box .icon{ 
+.stat-box .icon { 
   font-size: 28px;
 }
 
@@ -92,6 +93,7 @@
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
   flex: 1;
   text-align: center;
+  min-width: 200px; /* Ensures responsiveness and proper scaling */
 }
 
 .appointments-section {
@@ -113,16 +115,52 @@
   border-radius: 5px;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
   .sidebar {
-    transform: translateX(-100%);
-  }
-
-  .menu-toggle {
-    display: block;
+    width: 200px; /* Adjust width for medium screens */
   }
 
   .main-content {
-    margin-left: 0;
+    margin-left: 200px; /* Adjust main content width */
+  }
+}
+
+@media (max-width: 768px) {
+  .sidebar {
+    transform: translateX(-100%); /* Sidebar hidden on smaller screens */
+  }
+
+  .menu-toggle {
+    display: block; /* Menu toggle button visible */
+  }
+
+  .main-content {
+    margin-left: 0; /* No margin when sidebar is hidden */
+  }
+
+  .stats-section {
+    flex-direction: column; /* Stack stat boxes vertically on small screens */
+  }
+
+  .stat-box {
+    min-width: 100%; /* Ensure stat boxes fill available width */
+  }
+}
+
+@media (max-width: 480px) {
+  .sidebar {
+    width: 100%; /* Sidebar takes full width on very small screens */
+  }
+
+  .main-content {
+    margin-left: 0; /* Ensure main content fills the screen */
+  }
+
+  .sidebar ul li {
+    padding: 10px; /* Smaller padding on mobile */
+  }
+
+  .dashboard-header {
+    padding: 10px; /* Reduce padding for header */
   }
 }
