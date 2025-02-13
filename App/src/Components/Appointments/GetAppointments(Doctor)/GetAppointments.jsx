@@ -57,7 +57,7 @@ const AppointmentList = () => {
   const fetchAppointments = async () => {
     try {
       const token = localStorage.getItem("token");
-      const response = await axios.get("http://localhost:5500/api/v1/appointments", {
+      const response = await axios.get("https://doctor-appointment-backend-tim3.onrender.com/api/v1/appointments", {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -76,7 +76,7 @@ const AppointmentList = () => {
     try {
       const token = localStorage.getItem("token");
       await axios.put(
-        `http://localhost:5500/api/v1/appointment-status/${id}`,
+        `https://doctor-appointment-backend-tim3.onrender.com/api/v1/appointment-status/${id}`,
         { status: "approved" },
         {
           headers: { Authorization: `Bearer ${token}` },
@@ -93,7 +93,7 @@ const AppointmentList = () => {
     try {
       const token = localStorage.getItem("token");
       await axios.put(
-        `http://localhost:5500/api/v1/appointment-status/${id}`,
+        `https://doctor-appointment-backend-tim3.onrender.com/api/v1/appointment-status/${id}`,
         { status: "rejected" },
         {
           headers: { Authorization: `Bearer ${token}` },
