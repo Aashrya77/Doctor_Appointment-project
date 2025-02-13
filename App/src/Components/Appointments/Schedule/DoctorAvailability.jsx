@@ -91,13 +91,10 @@ const DoctorAvailability = () => {
         </div>
       </div>
      <button
-  className="availability-button submit"
-  onClick={submitAvailability}
-  disabled={availableSlots.length === 0} 
->
-  Submit Availability
-</button>
-
+          className="availability-button submit"
+          onClick={submitAvailability}
+          disabled={availableSlots.length === 0} 
+      >
         Submit Availability
       </button>
        {message && <p className="availability-message">{message}</p>}
