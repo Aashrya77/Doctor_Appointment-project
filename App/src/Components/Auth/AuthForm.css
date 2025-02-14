@@ -74,3 +74,21 @@
 .auth-link:hover {
   text-decoration: underline;
 }
+
+.auth-wait-message {
+  color: #ff9800; 
+  font-weight: bold;
+  font-size: 14px;
+  margin-top: 10px;
+  animation: fadeIn 1s ease-in-out infinite alternate;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0.5;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
