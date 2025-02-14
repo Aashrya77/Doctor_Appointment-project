@@ -14,11 +14,17 @@ const AuthForm = () => {
   });
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
+  const [longWait, setLongWait] = useState(false);
   const navigate = useNavigate();
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
+
+  const waitTimer = setTimeout(() => {
+      setLongWait(true);
+    }, 3000);
+
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -30,7 +36,7 @@ const AuthForm = () => {
         : "https://doctor-appointment-backend-tim3.onrender.com/api/v1/auth/login";
   
       const { data } = await axios.post(endpoint, formData);
-  
+      clearTimeout(waitTimer);
       const { token, role } = data;
   
       localStorage.setItem("token", token);
@@ -53,6 +59,7 @@ const AuthForm = () => {
       <div className="auth-box">
         <h2 className="auth-title">{isRegister ? "Register" : "Login"}</h2>
         {error && <p className="auth-error">{error}</p>}
+         {longWait && <p className="auth-wait-message">Please wait...</p>}
         <form onSubmit={handleSubmit} className="auth-form">
           {isRegister && (
             <input
