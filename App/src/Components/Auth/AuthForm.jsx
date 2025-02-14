@@ -23,7 +23,7 @@ const AuthForm = () => {
 
   const waitTimer = setTimeout(() => {
       setLongWait(true);
-    }, 3000);
+    }, 5000);
 
 
   const handleSubmit = async (e) => {
